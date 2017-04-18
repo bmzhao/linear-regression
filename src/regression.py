@@ -47,6 +47,9 @@ if __name__ == '__main__':
     train_data, test_data, train_target, test_target = train_test_split(data, target[:, np.newaxis], test_size=0.2,
                                                                         random_state=42)
 
+    train_data = train_data[:, 5, np.newaxis]
+    test_data = test_data[:, 5, np.newaxis]
+
     # <h4>Use scikit-learn library in the following cell</h4>
 
     # In[3]:
@@ -66,11 +69,13 @@ if __name__ == '__main__':
     print('Mean Squared Testing Error: ', calcError(test_target, test_predict))
 
     # Task 1-4: show plot a figure to show your predictions and real prices on the testing dataset
-    plt.scatter(test_data[:, 5], test_target.flatten(), color='black')
-    plt.scatter(test_data[:, 5], test_predict.flatten(), color='blue', linewidth=3)
+    # plt.scatter(test_data[:, 5], test_target.flatten(), color='black')
+    # plt.scatter(test_data[:, 5], test_predict.flatten(), color='blue', linewidth=3)
+    plt.scatter(test_data, test_target.flatten(), color='black')
+    plt.plot(test_data, test_predict.flatten(), color='blue', linewidth=3)
 
-    # plt.xticks(())
-    # plt.yticks(())
+    plt.xticks(())
+    plt.yticks(())
 
     plt.show()
 
