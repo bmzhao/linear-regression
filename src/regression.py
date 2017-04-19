@@ -66,12 +66,9 @@ if __name__ == '__main__':
     print('Mean Squared Testing Error: ', calcError(test_target, test_predict))
 
     # Task 1-4: show plot a figure to show your predictions and real prices on the testing dataset
-    plt.scatter(test_data[:, 5], test_target.flatten(), color='black')
-    plt.scatter(test_data[:, 5], test_predict.flatten(), color='blue', linewidth=3)
-
-    # plt.xticks(())
-    # plt.yticks(())
-
+    plt.scatter(test_target.flatten(), test_predict.flatten(), color='black')
+    plt.xticks(())
+    plt.yticks(())
     plt.show()
 
 
